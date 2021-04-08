@@ -4,42 +4,35 @@ import javax.swing.JOptionPane;
 
 public class Principal {
 	public static void main(String[]args) {
-		String string = JOptionPane.showInputDialog("Digite uma palavra");
+		String string = JOptionPane.showInputDialog("Digite aqui seu alfabeto");
 		CharSequence ch;
-		CharSequence ch1;
-		CharSequence ch2;
+		
 		boolean value = false;
 		
 		while(!value) {	
-		ch = JOptionPane.showInputDialog("Digite letras");
+		ch = JOptionPane.showInputDialog("Digite uma palavra");
 		value = string.contains(ch);
 		
-		ch1 = JOptionPane.showInputDialog("Digite letras");
-	    value = string.contains(ch1);
-		
-		ch2 = JOptionPane.showInputDialog("Digite letras");
-		value = string.contains(ch2);
-		
 		if(value == true) {
-			JOptionPane.showMessageDialog(null, montaExibicao(ch,ch1,ch2, string));
+			JOptionPane.showMessageDialog(null, montaExibicao(ch, string));
 		} 
 		if(value !=true ) {
-			JOptionPane.showMessageDialog(null, montaExibicaoErro(ch,ch1,ch2, string));
+			JOptionPane.showMessageDialog(null, montaExibicaoErro(ch, string));
 		}
 	  }
 		System.exit(0);
 	}
-	public static String montaExibicao(CharSequence ch,CharSequence ch1,CharSequence ch2,String string) {
+	public static String montaExibicao(CharSequence ch,String string) {
 		String exibicao = "";
 		exibicao+=" ===================\n";
-		exibicao+="As letras "+ch+" "+ch1+" "+ch2+ " contem na palavra "+string;
+		exibicao+="A palavra "+ch+" pertence a palavra ∑ "+string;
 		exibicao+="\n ===================";
 		return exibicao;
 	}
-	public static String montaExibicaoErro(CharSequence ch,CharSequence ch1,CharSequence ch2,String string) {
+	public static String montaExibicaoErro(CharSequence ch,String string) {
 		String exibicao = "";
 		exibicao+=" ===================\n";
-		exibicao+="As letras "+ch+ " "+ch1+" "+ch2+ " n�o contem na palavra "+string;
+		exibicao+="A palavra "+ch+ " não pertence a palavra ∑ "+string;
 		exibicao+="\n ===================";
 		return exibicao;
 	}
